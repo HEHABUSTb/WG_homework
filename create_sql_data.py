@@ -14,7 +14,7 @@ def create_weapons_table():
             'reload speed' INT,
             'rotational speed' INT,
             'diameter' INT,
-            'power_volley' INT,
+            'power volley' INT,
             'count' INT
         )""")
     data_base.commit()
