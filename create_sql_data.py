@@ -2,8 +2,7 @@ import random
 import sqlite3
 import allure
 
-data_base = sqlite3.connect('game_params.db')
-sql = data_base.cursor()
+
 
 
 def random_value(start=0, end=20):
@@ -11,7 +10,9 @@ def random_value(start=0, end=20):
 
 
 @allure.step
-def create_ships_table():
+def create_ships_table(data_base_name='game_params.db'):
+    data_base = sqlite3.connect(data_base_name)
+    sql = data_base.cursor()
     sql.execute("""CREATE TABLE IF NOT EXISTS ships (
                 'ship' TEXT,
                 'weapon' TEXT,
@@ -22,7 +23,9 @@ def create_ships_table():
 
 
 @allure.step
-def create_weapons_table():
+def create_weapons_table(data_base_name='game_params.db'):
+    data_base = sqlite3.connect(data_base_name)
+    sql = data_base.cursor()
     sql.execute("""CREATE TABLE IF NOT EXISTS weapons (
             'weapon' TEXT,
             'reload speed' INT,
@@ -41,7 +44,9 @@ def create_weapons_table():
 
 
 @allure.step
-def create_hulls_table():
+def create_hulls_table(data_base_name='game_params.db'):
+    data_base = sqlite3.connect(data_base_name)
+    sql = data_base.cursor()
     sql.execute("""CREATE TABLE IF NOT EXISTS hulls (
                 'hull' TEXT,
                 'armor' INT,
@@ -57,7 +62,9 @@ def create_hulls_table():
 
 
 @allure.step
-def create_engines_table():
+def create_engines_table(data_base_name='game_params.db'):
+    data_base = sqlite3.connect(data_base_name)
+    sql = data_base.cursor()
     sql.execute("""CREATE TABLE IF NOT EXISTS engines (
                 'engine' TEXT,
                 'power' INT,
