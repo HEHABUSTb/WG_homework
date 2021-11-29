@@ -6,7 +6,7 @@ class BaseClass:
 
     def get_game_data(self):
         path = os.getcwd() + '\\TestData\\game_params.db'
-        # path = 'D:\\GIT_Repository\\WG_TEST\\TestData\\game_params.db'
+        # path = 'D:\\GIT_Repository\\WG_homework\\TestData\\game_params.db'
         connection = sqlite3.connect(path)
         selector = "SELECT * FROM ships LEFT JOIN engines ON ships.engine == engines.engine " \
                    "LEFT JOIN hulls ON ships.hull == hulls.hull " \
@@ -28,8 +28,8 @@ class BaseClass:
             print(f"The error '{e}' occurred")
 
     def get_fake_data(self, ship_name):
-        # path = os.getcwd() + '\\TestData\\game_params.db'
-        path = 'D:\\GIT_Repository\\WG_TEST\\TestData\\fake_params.db'
+        path = os.getcwd() + '\\TestData\\fake_params.db'
+        # path = 'D:\\GIT_Repository\\WG_homework\\TestData\\fake_params.db'
         connection = sqlite3.connect(path)
         result = connection.execute("SELECT * FROM ships LEFT JOIN engines ON ships.engine == engines.engine " \
                                     "LEFT JOIN hulls ON ships.hull == hulls.hull " \

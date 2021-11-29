@@ -16,8 +16,8 @@ def setup():
     # path_to_game_db = os.getcwd() + '\\TestData\\game_params.db'
     # path_to_fake_db = os.getcwd() + '\\TestData\\fake_params.db'
 
-    path_to_game_db = 'D:\\GIT_Repository\\WG_TEST\\TestData\\game_params.db'
-    path_to_fake_db = 'D:\\GIT_Repository\\WG_TEST\\TestData\\fake_params.db'
+    path_to_game_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\game_params.db'
+    path_to_fake_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\fake_params.db'
 
     update_table = CreateFakeDB()
     update_table.copy_table(path_to_game_db, path_to_fake_db)

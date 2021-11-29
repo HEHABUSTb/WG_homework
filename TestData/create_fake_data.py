@@ -1,9 +1,13 @@
 import logging
 import os
+import random
 import sqlite3
 from shutil import copyfile
 import allure
-from TestData.create_sql_data import random_value
+
+
+def random_value(start=1, end=20):
+    return random.randint(start, end)
 
 
 class CreateFakeDB:
