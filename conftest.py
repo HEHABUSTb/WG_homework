@@ -13,11 +13,12 @@ def setup():
     # path = os.path.abspath('TestData/game_params.db')
     # fake_path = os.path.abspath('TestData/fake_params.db')
 
-    # path_to_game_db = os.getcwd() + '\\TestData\\game_params.db'
-    # path_to_fake_db = os.getcwd() + '\\TestData\\fake_params.db'
+    path_to_game_db = os.getcwd() + '\\TestData\\game_params.db'
+    path_to_fake_db = os.getcwd() + '\\TestData\\fake_params.db'
 
-    path_to_game_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\game_params.db'
-    path_to_fake_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\fake_params.db'
+    # path_to_game_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\game_params.db'
+    # path_to_fake_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\fake_params.db'
+    logging.info(f"Actual path to data base is {path_to_game_db}")
 
     update_table = CreateFakeDB()
     update_table.copy_table(path_to_game_db, path_to_fake_db)
