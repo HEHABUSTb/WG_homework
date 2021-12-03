@@ -4,7 +4,7 @@ import logging
 from BaseClass.BaseClass import BaseClass
 
 
-@pytest.mark.smoke
+@pytest.mark.old
 @pytest.mark.usefixtures('setup')
 class TestGameParams(BaseClass):
 
@@ -17,7 +17,7 @@ class TestGameParams(BaseClass):
         """Will need to rework in smth like param = pytest.param(ship.name, hull_name, ship, hull, hulls_count, id='{}-{}'.format(ship.name, hull_name))"""
         return request.param
 
-    @pytest.mark.one
+    @pytest.mark.old
     def example_add_t(self, get_data):
         print('GAME DATA')
         print(get_data)
@@ -29,7 +29,7 @@ class TestGameParams(BaseClass):
         fake_engine_name, fake_engine_power = fake['engine'], float(fake['power'])
         assert (engine_name, engine_power) == (fake_engine_name, fake_engine_power)
 
-    @pytest.mark.engines
+    @pytest.mark.old
     def test_engines(self, get_data):
         engine_name, engine_power, engine_type = get_data['engine'], float(get_data['power']), float(get_data['type'])
 
@@ -40,7 +40,7 @@ class TestGameParams(BaseClass):
             f"Values not equal got {engine_name}, power:{engine_power}, type:{engine_type}" \
             f" should be {fake_engine_name}, {fake_engine_power}, {fake_engine_type}"
 
-    @pytest.mark.hulls
+    @pytest.mark.old
     def test_hulls(self, get_data):
         hull_name, hull_armor, hull_type, hull_capacity =\
             get_data['hull'], int(get_data['armor']), int(get_data['types']), int(get_data['capacity'])
@@ -54,7 +54,7 @@ class TestGameParams(BaseClass):
                f"Values not equal got {hull_name} armor: {hull_armor}, type: {hull_type}, capasity: {hull_capacity}" \
                f" should be {fake_hull_name}, {fake_hull_armor}, {fake_hull_type} {fake_hull_capacity}"
 
-    @pytest.mark.weapons
+    @pytest.mark.old
     def test_weapons(self, get_data):
         name, reload_speed, rotation,  =  get_data['weapon'], int(get_data['reload speed']), int(get_data['rotational speed'])
         diameter, power, count = int(get_data['diameter']), int(get_data['power_volley']), int(get_data['count'])
