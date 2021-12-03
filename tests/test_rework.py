@@ -38,18 +38,6 @@ class TestGameParams(BaseClass):
         fake_engine, fake_power = fake['engine'], int(fake['power'])
         assert (engine, power) == (fake_engine, fake_power)
 
-    data = ['ship', 'engine', 'power', 'type']
-
-    @pytest.mark.engines
-    @pytest.mark.parametrize("ship, engine, power, type", get_all_data(data))
-    def test_engines(self, ship, engine, power, type):
-
-        fake_data = self.get_fake_data(ship)
-        fake_engine_name, fake_engine_power, fake_engine_type = fake_data['engine'], int(fake_data['power']), int(fake_data['type'])
-
-        assert (engine, power, type) == (fake_engine_name, fake_engine_power, fake_engine_type),\
-            f"Values not equal  {engine}, power:{power}, type:{type}" \
-            f" should be {fake_engine_name}, {fake_engine_power}, {fake_engine_type}"
 
     @pytest.mark.engines
     @pytest.mark.parametrize("ship, engine, power, type", get_all_data(['ship', 'engine', 'power', 'type']))
