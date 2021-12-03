@@ -1,5 +1,7 @@
 import logging
 import os
+import shutil
+import time
 
 import pyautogui
 import allure
@@ -16,8 +18,8 @@ def setup():
     path_to_game_db = os.getcwd() + '\\TestData\\game_params.db'
     path_to_fake_db = os.getcwd() + '\\TestData\\fake_params.db'
 
-    # path_to_game_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\game_params.db'
-    # path_to_fake_db = 'D:\\GIT_Repository\\WG_homework\\TestData\\fake_params.db'
+    # path_to_game_db = 'D:\\MY_GIT\\WG_homework\\TestData\\game_params.db'
+    # path_to_fake_db = 'D:\\MY_GIT\\WG_homework\\TestData\\fake_params.db'
     logging.info(f"Actual path to data base is {path_to_game_db}")
 
     update_table = CreateFakeDB()
@@ -26,6 +28,7 @@ def setup():
 
     yield
     logging.info('Teardown')
+    allure.attach(r'profile/pytest.log', name='pytest.log', attachment_type=AttachmentType.TEXT)
 
 
 @pytest.mark.hookwrapper
