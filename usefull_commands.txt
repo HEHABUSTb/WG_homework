@@ -6,3 +6,9 @@ python3 -m venv venv
 python -m pytest -v -s  -m one
 python -m pytest -v -s  -m smoke
 --alluredir=allure_report
+
+pip install pyinstaller
+pyinstaller TestData/GUI.py
+
+pip install auto-py-to-exe
+https://habr.com/ru/company/vdsina/blog/557316/
